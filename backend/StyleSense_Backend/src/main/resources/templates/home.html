@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleSense — AI Fashion Recommendations</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="/" class="brand">StyleSense</a>
+    <div class="nav-links">
+        <a href="/products">Shop</a>
+        <a href="/login">Sign in</a>
+        <a href="/register" class="btn-primary">Sign up</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <span class="eyebrow">AI-Powered Fashion</span>
+    <h1>Your Personal<br><span>AI Stylist</span></h1>
+    <p>StyleSense uses AI to build complete, personalised outfit recommendations
+        based on your body type, style preferences, and occasion — or simply
+        upload a clothing item you already own.</p>
+    <div class="hero-buttons">
+        <a href="/register" class="btn-primary">Get Started Free</a>
+        <a href="/products" class="btn-outline">Browse Products</a>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+    <div class="features-inner">
+        <h2>How StyleSense works</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">✦</div>
+                <h3>Tell us your style</h3>
+                <p>Set your body type, preferred occasions, budget, and style —
+                    your personal fashion profile.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🤖</div>
+                <h3>AI builds your outfit</h3>
+                <p>Our engine combines rule-based styling logic, content
+                    filtering, and GPT-4o to create a complete look.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">👗</div>
+                <h3>Upload your own pieces</h3>
+                <p>Photo a clothing item you already own and we'll find
+                    everything it needs to complete the outfit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Ready to dress smarter?</h2>
+    <p>Create a free account and get your first personalised outfit in seconds.</p>
+    <a href="/register" class="btn-primary">Start for free</a>
+</section>
+
+</body>
+</html>

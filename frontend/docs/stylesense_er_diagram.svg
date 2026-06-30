@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980">
+  <defs>
+    <style>
+      .canvas { fill: #fbfaf7; }
+      .entity { fill: #ffffff; stroke: #1f2933; stroke-width: 2; }
+      .header { fill: #bfc3c7; stroke: #1f2933; stroke-width: 2; }
+      .title { fill: #2f3a45; font: 700 18px Arial, sans-serif; }
+      .field { fill: #26323d; font: 15px Arial, sans-serif; }
+      .line { fill: none; stroke: #e66b1a; stroke-width: 2.4; }
+      .pk { font-weight: 700; }
+    </style>
+    <marker id="crow" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 1 L 16 9 L 0 17 M 0 9 L 16 9" fill="none" stroke="#e66b1a" stroke-width="2"/>
+    </marker>
+    <marker id="one" markerWidth="12" markerHeight="18" refX="9" refY="9" orient="auto" markerUnits="strokeWidth">
+      <path d="M 8 1 L 8 17" fill="none" stroke="#e66b1a" stroke-width="2"/>
+    </marker>
+  </defs>
+
+  <rect class="canvas" x="0" y="0" width="1400" height="980"/>
+
+  <!-- Row 1 -->
+  <g id="roles">
+    <rect class="entity" x="50" y="52" width="220" height="150" rx="6"/>
+    <rect class="header" x="50" y="52" width="220" height="42" rx="6"/>
+    <text class="title" x="66" y="80">Roles</text>
+    <text class="field pk" x="66" y="122">role_id</text>
+    <text class="field" x="66" y="152">role_name</text>
+    <text class="field" x="66" y="182">created_at</text>
+  </g>
+
+  <g id="users">
+    <rect class="entity" x="380" y="42" width="250" height="205" rx="6"/>
+    <rect class="header" x="380" y="42" width="250" height="42" rx="6"/>
+    <text class="title" x="396" y="70">Users</text>
+    <text class="field pk" x="396" y="112">user_id</text>
+    <text class="field" x="396" y="142">role_id</text>
+    <text class="field" x="396" y="172">full_name</text>
+    <text class="field" x="396" y="202">email</text>
+    <text class="field" x="396" y="232">password_hash</text>
+  </g>
+
+  <g id="style_profiles">
+    <rect class="entity" x="740" y="42" width="260" height="235" rx="6"/>
+    <rect class="header" x="740" y="42" width="260" height="42" rx="6"/>
+    <text class="title" x="756" y="70">Style Profiles</text>
+    <text class="field pk" x="756" y="112">profile_id</text>
+    <text class="field" x="756" y="142">user_id</text>
+    <text class="field" x="756" y="172">gender</text>
+    <text class="field" x="756" y="202">body_type</text>
+    <text class="field" x="756" y="232">style_preference</text>
+    <text class="field" x="756" y="262">budget_range</text>
+  </g>
+
+  <g id="admin_logs">
+    <rect class="entity" x="1110" y="52" width="240" height="180" rx="6"/>
+    <rect class="header" x="1110" y="52" width="240" height="42" rx="6"/>
+    <text class="title" x="1126" y="80">Admin Audit Logs</text>
+    <text class="field pk" x="1126" y="122">audit_log_id</text>
+    <text class="field" x="1126" y="152">admin_user_id</text>
+    <text class="field" x="1126" y="182">action</text>
+    <text class="field" x="1126" y="212">entity_name</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g id="categories">
+    <rect class="entity" x="50" y="330" width="230" height="165" rx="6"/>
+    <rect class="header" x="50" y="330" width="230" height="42" rx="6"/>
+    <text class="title" x="66" y="358">Categories</text>
+    <text class="field pk" x="66" y="400">category_id</text>
+    <text class="field" x="66" y="430">category_name</text>
+    <text class="field" x="66" y="460">parent_category_id</text>
+  </g>
+
+  <g id="products">
+    <rect class="entity" x="380" y="315" width="260" height="245" rx="6"/>
+    <rect class="header" x="380" y="315" width="260" height="42" rx="6"/>
+    <text class="title" x="396" y="343">Products</text>
+    <text class="field pk" x="396" y="385">product_id</text>
+    <text class="field" x="396" y="415">category_id</text>
+    <text class="field" x="396" y="445">product_name</text>
+    <text class="field" x="396" y="475">color</text>
+    <text class="field" x="396" y="505">style_tag</text>
+    <text class="field" x="396" y="535">base_price</text>
+  </g>
+
+  <g id="stores">
+    <rect class="entity" x="740" y="330" width="230" height="165" rx="6"/>
+    <rect class="header" x="740" y="330" width="230" height="42" rx="6"/>
+    <text class="title" x="756" y="358">Stores</text>
+    <text class="field pk" x="756" y="400">store_id</text>
+    <text class="field" x="756" y="430">store_name</text>
+    <text class="field" x="756" y="460">website_url</text>
+  </g>
+
+  <g id="product_store_links">
+    <rect class="entity" x="1080" y="315" width="270" height="215" rx="6"/>
+    <rect class="header" x="1080" y="315" width="270" height="42" rx="6"/>
+    <text class="title" x="1096" y="343">Product Store Links</text>
+    <text class="field pk" x="1096" y="385">product_store_link_id</text>
+    <text class="field" x="1096" y="415">product_id</text>
+    <text class="field" x="1096" y="445">store_id</text>
+    <text class="field" x="1096" y="475">external_product_url</text>
+    <text class="field" x="1096" y="505">availability_status</text>
+  </g>
+
+  <!-- Row 3 -->
+  <g id="uploaded_items">
+    <rect class="entity" x="50" y="640" width="250" height="215" rx="6"/>
+    <rect class="header" x="50" y="640" width="250" height="42" rx="6"/>
+    <text class="title" x="66" y="668">Uploaded Items</text>
+    <text class="field pk" x="66" y="710">uploaded_item_id</text>
+    <text class="field" x="66" y="740">user_id</text>
+    <text class="field" x="66" y="770">image_url</text>
+    <text class="field" x="66" y="800">detected_category</text>
+    <text class="field" x="66" y="830">detected_color</text>
+  </g>
+
+  <g id="outfits">
+    <rect class="entity" x="380" y="655" width="240" height="180" rx="6"/>
+    <rect class="header" x="380" y="655" width="240" height="42" rx="6"/>
+    <text class="title" x="396" y="683">Outfits</text>
+    <text class="field pk" x="396" y="725">outfit_id</text>
+    <text class="field" x="396" y="755">outfit_name</text>
+    <text class="field" x="396" y="785">style_tag</text>
+    <text class="field" x="396" y="815">occasion_tag</text>
+  </g>
+
+  <g id="recommendations">
+    <rect class="entity" x="730" y="625" width="280" height="240" rx="6"/>
+    <rect class="header" x="730" y="625" width="280" height="42" rx="6"/>
+    <text class="title" x="746" y="653">Recommendations</text>
+    <text class="field pk" x="746" y="695">recommendation_id</text>
+    <text class="field" x="746" y="725">user_id</text>
+    <text class="field" x="746" y="755">outfit_id</text>
+    <text class="field" x="746" y="785">uploaded_item_id</text>
+    <text class="field" x="746" y="815">ai_explanation</text>
+    <text class="field" x="746" y="845">generated_at</text>
+  </g>
+
+  <g id="recommendation_items">
+    <rect class="entity" x="1100" y="650" width="250" height="185" rx="6"/>
+    <rect class="header" x="1100" y="650" width="250" height="42" rx="6"/>
+    <text class="title" x="1116" y="678">Recommendation Items</text>
+    <text class="field pk" x="1116" y="720">recommendation_item_id</text>
+    <text class="field" x="1116" y="750">recommendation_id</text>
+    <text class="field" x="1116" y="780">product_id</text>
+    <text class="field" x="1116" y="810">score</text>
+  </g>
+
+  <!-- Payment/admin ecommerce block -->
+  <g id="carts">
+    <rect class="entity" x="50" y="885" width="200" height="80" rx="6"/>
+    <rect class="header" x="50" y="885" width="200" height="34" rx="6"/>
+    <text class="title" x="66" y="908">Carts</text>
+    <text class="field pk" x="66" y="945">cart_id</text>
+  </g>
+
+  <g id="orders">
+    <rect class="entity" x="380" y="875" width="230" height="95" rx="6"/>
+    <rect class="header" x="380" y="875" width="230" height="34" rx="6"/>
+    <text class="title" x="396" y="898">Orders</text>
+    <text class="field pk" x="396" y="932">order_id</text>
+    <text class="field" x="396" y="958">total_amount</text>
+  </g>
+
+  <g id="payments">
+    <rect class="entity" x="730" y="875" width="230" height="95" rx="6"/>
+    <rect class="header" x="730" y="875" width="230" height="34" rx="6"/>
+    <text class="title" x="746" y="898">Payments</text>
+    <text class="field pk" x="746" y="932">payment_id</text>
+    <text class="field" x="746" y="958">payment_status</text>
+  </g>
+
+  <!-- Relationships -->
+  <path class="line" d="M270 124 H380" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M630 132 H740" marker-start="url(#one)" marker-end="url(#one)"/>
+  <path class="line" d="M630 168 C820 168 920 142 1110 142" marker-start="url(#one)" marker-end="url(#crow)"/>
+
+  <path class="line" d="M280 415 H380" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M640 425 H1080" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M970 425 H1080" marker-start="url(#one)" marker-end="url(#crow)"/>
+
+  <path class="line" d="M505 247 V315" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M505 560 V655" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M620 745 H730" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M1010 745 H1100" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M640 500 C870 500 940 710 1100 775" marker-start="url(#one)" marker-end="url(#crow)"/>
+
+  <path class="line" d="M505 247 C300 430 210 530 175 640" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M300 745 H380" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M300 785 C510 785 580 785 730 785" marker-start="url(#one)" marker-end="url(#crow)"/>
+
+  <path class="line" d="M505 247 C160 330 150 710 150 885" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M505 247 V875" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <path class="line" d="M610 922 H730" marker-start="url(#one)" marker-end="url(#crow)"/>
+
+  <text class="field" x="42" y="25">StyleSense ER Diagram - Database Design</text>
+</svg>
