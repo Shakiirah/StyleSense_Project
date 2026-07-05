@@ -1,60 +1,152 @@
+import { useState } from "react";
+import { CloudSun, Eye, Sparkles, Tag, Upload, UserRound, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import "./Hero.css";
 
-const motionImages = [
-  { src: "/images/hero_motion/motion-2-piece.avif", alt: "Two piece outfit" },
-  { src: "/images/hero_motion/motion-casual-dress.avif", alt: "Casual dress outfit" },
-  { src: "/images/hero_motion/motion-sweater.avif", alt: "Sweater outfit" },
-  { src: "/images/hero_motion/motion-jean-pant.avif", alt: "Jean pant outfit" },
-  { src: "/images/hero_motion/motion-skirt.webp", alt: "Statement skirt outfit" },
-  { src: "/images/hero_motion/motion-formal.jpg", alt: "Formal outfit" },
-  { src: "/images/hero_motion/motion-2-piece-2.webp", alt: "Coordinated two piece outfit" },
-  { src: "/images/hero_motion/motion-denim.jpg", alt: "Denim street style outfit" },
-  { src: "/images/hero_motion/motion-top-pink.webp", alt: "Pink top outfit" },
-  { src: "/images/hero_motion/motion-top-red.jpg", alt: "Red top outfit" },
-  { src: "/images/hero_motion/motion-crop-top.jpg", alt: "Crop top outfit" },
+const outfitInspirations = [
+  {
+    title: "Casual Day Out",
+    image: "/images/complete_casual_outfit_female3.webp",
+  },
+  {
+    title: "Vacation Vibes",
+    image: "/images/complete_outfit_vacation_female.webp",
+  },
+  {
+    title: "Office Ready",
+    image: "/images/Complete_office_outfit_female.webp",
+  },
+  {
+    title: "Party Glam",
+    image: "/images/complete_oufit_party_female4.webp",
+  },
 ];
 
 function Hero() {
   const navigate = useNavigate();
+  const [selectedLook, setSelectedLook] = useState(null);
+
+  const openLook = (look) => {
+    setSelectedLook(look);
+  };
 
   return (
-    <section className="hero">
-      <div className="hero-motion-bg" aria-hidden="true">
-        <div className="hero-motion-track">
-          {[...motionImages, ...motionImages].map((img, index) => (
-            <img key={`${img.src}-${index}`} src={img.src} alt={img.alt} />
-          ))}
-        </div>
-      </div>
-
+    <section className="hero ai-hero">
       <div className="hero-left">
-        <span className="badge">AI-Powered Fashion Assistant</span>
+        <span className="badge">
+          <Sparkles size={14} />
+          AI-Powered Style Recommendations
+        </span>
 
         <h1>
-          Your Personal <span>AI Stylist</span>
+          Your AI Stylist,
+          <span>Personalized for You</span>
         </h1>
 
         <p>
-          Build confident outfits with recommendations tailored to your body
-          type, occasion, budget, weather, and style preferences.
+          Upload a fashion item, answer a few style questions, and let our AI create
+          complete outfit recommendations based on your body type, occasion, weather,
+          budget, cultural inspiration, and style preferences.
         </p>
 
         <div className="buttons">
-          <button className="primary-btn" onClick={() => navigate("/quiz")}>
-            Start Styling Quiz
+          <button className="primary-btn" type="button" onClick={() => navigate("/matcher")}>
+            <Upload size={20} />
+            Start AI Styling
           </button>
 
-          <button className="secondary-btn" onClick={() => navigate("/matcher")}>
-            Upload & Match
+          <button className="secondary-btn" type="button" onClick={() => navigate("/quiz")}>
+            <Sparkles size={20} />
+            Take Style Quiz
           </button>
         </div>
 
-        <div className="hero-stats" aria-label="StyleSense highlights">
-          <span><strong>6-step</strong> style quiz</span>
-          <span><strong>AI</strong> outfit matching</span>
-          <span><strong>Store</strong> suggestions</span>
+        <p className="privacy-note">Your data is private and secure</p>
+
+        <div className="hero-feature-row" aria-label="Recommendation features">
+          <div>
+            <UserRound size={27} />
+            <strong>Personalized</strong>
+            <span>for you</span>
+          </div>
+
+          <div>
+            <Sparkles size={27} />
+            <strong>Smart Outfit</strong>
+            <span>Pairing</span>
+          </div>
+
+          <div>
+            <CloudSun size={27} />
+            <strong>Weather</strong>
+            <span>Aware</span>
+          </div>
+
+          <div>
+            <Tag size={27} />
+            <strong>Budget</strong>
+            <span>Friendly</span>
+          </div>
         </div>
       </div>
+
+      <div className="hero-right" aria-label="AI outfit inspiration preview">
+        <div className="recommendation-preview-card">
+          <div className="preview-heading">
+            <div>
+              <span>
+                <Sparkles size={18} />
+                AI Outfit Inspirations
+              </span>
+              <p>Complete outfits curated by StyleSense AI just for you.</p>
+            </div>
+          </div>
+
+          <div className="look-cards">
+            {outfitInspirations.map((look) => (
+              <article className="look-card" key={look.title}>
+                <div
+                  className="look-image-wrap"
+                  onClick={() => openLook(look)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      openLook(look);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View ${look.title}`}
+                >
+                  <img src={look.image} alt={look.title} />
+
+                  <div className="view-image-overlay">
+                    <Eye size={16} />
+                    View Image
+                  </div>
+                </div>
+
+                <h3 className="look-title">{look.title}</h3>
+              </article>
+            ))}
+          </div>
+
+          <button className="more-recommendations" type="button" onClick={() => navigate("/quiz")}>
+            Personalize These Looks →
+          </button>
+        </div>
+      </div>
+
+      {selectedLook && (
+        <div className="image-modal" onClick={() => setSelectedLook(null)}>
+          <button className="modal-close" type="button" onClick={() => setSelectedLook(null)} aria-label="Close image preview">
+            <X size={28} />
+          </button>
+
+          <div className="image-only-modal" onClick={(event) => event.stopPropagation()}>
+            <img src={selectedLook.image} alt={selectedLook.title} />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

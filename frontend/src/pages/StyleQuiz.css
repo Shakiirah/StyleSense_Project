@@ -152,12 +152,21 @@
 }
 
 .prev-btn,
-.next-btn {
+.skip-btn {
   min-height: 48px;
   padding: 0 24px;
   border-radius: 14px;
   font-weight: 850;
   cursor: pointer;
+  color: #fff;
+  border: 0;
+  background: linear-gradient(135deg, var(--accent), #b95519);
+  box-shadow: 0 14px 28px rgba(217, 107, 32, 0.2);
+}
+
+.skip-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 
 .prev-btn {

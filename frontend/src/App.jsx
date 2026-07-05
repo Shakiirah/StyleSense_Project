@@ -20,6 +20,7 @@ function App() {
         <Route path="/quiz" element={<StyleQuiz />} />
         <Route path="/login" element={<Login />} />
         <Route path="/matcher" element={<OutfitMatcher />} />
+        <Route path="/ai-stylist" element={<OutfitMatcher />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/recommendations" element={<Recommendations />} />
